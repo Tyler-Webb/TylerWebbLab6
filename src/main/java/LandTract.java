@@ -14,9 +14,14 @@ public class LandTract {
     private double length;
     private double width;
     
-    public LandTract(double length, double width){
-        this.length = length;
-        this.width = width;
+    public LandTract(String length, String width) throws NumberFormatException{
+        try{
+            
+            this.length = Double.parseDouble(length);
+            this.width = Double.parseDouble(width);
+        } catch (NumberFormatException e){
+            System.out.println("Invalid measurement");
+        }
            
     }
     
@@ -26,7 +31,7 @@ public class LandTract {
     
     public boolean checkIfEqual(LandTract tract2){
        
-        if(this.length == tract2.getArea() && this.width == tract2.getArea()){
+        if(this.getArea() == tract2.getArea()){
             return true;
         }
         else
